@@ -1,0 +1,131 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
+
+/* Background Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #4a5a3f, #98b071);
+}
+
+/* Edit Profile Container */
+.edit-profile-container {
+    background: rgba(19, 26, 16, 0.9); /* Slight transparency for a sleek look */
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Uniform Navigation Button Styling */
+.back-button, .return-button, .home-button, .back-btn, .return-btn, .home-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    width: 45px; /* Adjusted for better visibility */
+    height: auto;
+}
+
+/* Back/Return Button positioning */
+.back-button, .return-button, .back-btn, .return-btn {
+    top: 15px;
+    left: 15px;
+}
+
+/* Home Button positioning */
+.home-button, .home-btn {
+    top: 15px;
+    right: 15px;
+}
+
+/* Button images */
+.back-button img, .return-button img, .home-button img, 
+.back-btn img, .return-btn img, .home-btn img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensures proper alignment */
+}
+
+/* Hover effect for all navigation buttons */
+.back-button:hover, .return-button:hover, .home-button:hover, 
+.back-btn:hover, .return-btn:hover, .home-btn:hover {
+    opacity: 0.7;
+}
+
+.home-button, .home-btn {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+
+/* Header (Background Removed) */
+.header {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-icon {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Button Section */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.action-button {
+    background: #4c8a2c;
+    color: white;
+    font-size: 16px;
+    padding: 14px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.action-button:hover {
+    background: #3a6f22;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .edit-profile-container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .action-button {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}

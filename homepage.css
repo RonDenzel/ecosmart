@@ -1,0 +1,142 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Russo+One');
+
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1f2818, #7d9363);
+    text-align: center;
+    color: white;
+}
+
+/* Facilitator Button */
+.facilitator-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: #4d5a33;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 15px;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.facilitator-btn:hover {
+    background-color: #5f6b42;
+}
+
+/* Centering Content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 10px; /* Adjusted spacing */
+}
+
+/* Logo */
+.logo img {
+    width: 120px; /* Slightly smaller for better positioning */
+    height: auto;
+    margin-bottom: 2px; /* Moves it closer to text */
+    margin-top: -10px;
+}
+
+/* "WELCOME TO" text */
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    margin-top: -10px;
+}
+
+/* ECOSMART Styling */
+h1 {
+    font-size: 50px;
+    font-family: 'Great Vibes', cursive;
+    font-weight: normal;
+    font-style: italic;
+    color: #d5e8d4;
+    margin-top: 5px; /* Moves it up */
+    line-height: 1;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-top: -40px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.queue-btn {
+    background-color: #4d5a33;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    min-width: 140px;
+    transition: 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.queue-btn:hover {
+    background-color: #5f6b42;
+}
+
+
+
+/* SVG (Animated ECOSMART) */
+svg {
+    font-family: 'Russo One', sans-serif;
+    width: 100%;
+    height: auto; /* Change from 100% height */
+    margin-top: 10px;
+}
+
+svg text {
+    text-transform: uppercase;
+    animation: stroke 5s infinite alternate;
+    stroke-width: 2;
+    stroke: green;
+    font-size: 100px; /* Adjust to fit properly */
+}
+
+/* Animation */
+@keyframes stroke {
+    0% {
+        fill: #17B169;
+        stroke: #17B169;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0 50%;
+        stroke-width: 2;
+    }
+    70% {
+        fill: rgba(72,138,20,0);
+        stroke: #17B169;
+    }
+    80% {
+        fill: rgba(72,138,20,0);
+        stroke: #17B169;
+        stroke-width: 3;
+    }
+    100% {
+        fill: #17B169;
+        stroke: rgba(54,95,160,0);
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 50% 0;
+        stroke-width: 0;
+    }
+}

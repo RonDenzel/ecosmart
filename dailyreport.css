@@ -1,0 +1,170 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2d4738; /* Dark green background */
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    background-color: #2d4738;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+}
+
+/* Uniform Navigation Button Styling */
+.back-button, .return-button, .home-button, .back-btn, .return-btn, .home-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    width: 45px; /* Adjusted for better visibility */
+    height: auto;
+}
+
+/* Back/Return Button positioning */
+.back-button, .return-button, .back-btn, .return-btn {
+    top: 15px;
+    left: 15px;
+}
+
+/* Home Button positioning */
+.home-button, .home-btn {
+    top: 15px;
+    right: 15px;
+}
+
+/* Button images */
+.back-button img, .return-button img, .home-button img, 
+.back-btn img, .return-btn img, .home-btn img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensures proper alignment */
+}
+
+/* Hover effect for all navigation buttons */
+.back-button:hover, .return-button:hover, .home-button:hover, 
+.back-btn:hover, .return-btn:hover, .home-btn:hover {
+    opacity: 0.7;
+}
+
+/* Date selector styling */
+.date-selector {
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.date-selector input[type="date"] {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+.date-selector button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.date-selector button:hover {
+    background-color: #45a049;
+}
+
+/* Main content and table styling */
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #e0e0e0;
+}
+
+th {
+    padding: 12px;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    color: black;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Empty state styling */
+tbody tr td[colspan="4"] {
+    padding: 30px;
+    text-align: center;
+    color: #777;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    main {
+        width: 95%;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 8px 5px;
+    }
+    
+    .date-selector {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .date-selector input[type="date"] {
+        margin-right: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .date-selector button {
+        width: 100%;
+        max-width: 250px;
+    }
+}

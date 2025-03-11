@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="editprofile.css">
+</head>
+<body>
+    <div class="edit-profile-container">
+        <!-- Navigation Icons -->
+        <a href="adminhomepage.html" class="back-button">
+            <img src="return button.png" alt="Back">
+        </a>
+        <button class="home-button" type="button" id="homebutton">
+            <img src="home icon.png" alt="Home">
+        </button>
+
+        <!-- Header Section -->
+        <div class="header">
+            <img src="ecosmart logo.png" alt="Profile Icon" class="profile-icon">
+            <h1>EDIT PROFILE</h1>
+        </div>
+
+        <!-- Button Section -->
+        <div class="button-container">
+            <a class="action-button" href="changeemail.html">CHANGE EMAIL</a>
+            <a class="action-button" href="changepass.html">CHANGE PASSWORD</a>
+        </div>
+    </div>
+
+    <script>
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+    
+        let MsgHead = document.getElementById('msg');
+        let GreetHead = document.getElementById('greet');
+        //let SignoutBtn = document.getElementById('signoutbutton');
+        let HomeBtn = document.getElementById('homebutton');
+    
+        /*let Signout = ()=>{
+          sessionStorage.removeItem("user-creds");
+          sessionStorage.removeItem("user-info");
+          window.location.href = 'adminlogin.html'
+        }*/
+    
+        let Home = () => {
+  // Ask user for confirmation before signing out
+  let confirmation = confirm("Are you sure you want to sign out and return to homepage?");
+  
+  // If user clicks "OK" (Yes)
+  if (confirmation) {
+    sessionStorage.removeItem("user-creds");
+    sessionStorage.removeItem("user-info");
+    window.location.href = 'index.html';
+  }
+  // If user clicks "Cancel" (No), do nothing and stay on current page
+};
+    
+        let CheckCred = ()=>{
+          if(!sessionStorage.getItem("user-creds"))
+            window.location.href = 'adminlogin.html'
+        }
+    
+        window.addEventListener('load', CheckCred);
+        //SignoutBtn.addEventListener('click', Signout);
+        HomeBtn.addEventListener('click', Home);
+      </script>
+</body>
+</html>

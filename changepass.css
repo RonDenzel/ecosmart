@@ -1,0 +1,150 @@
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
+
+/* Background Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #262e1c; /* Dark green background */
+}
+
+/* Password Container */
+.password-container {
+    background: #131a10;
+    border-radius: 20px;
+    padding: 40px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    text-align: left;
+}
+
+/* Uniform Navigation Button Styling */
+.back-button, .return-button, .home-button, .back-btn, .return-btn, .home-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    width: 45px; /* Adjusted for better visibility */
+    height: auto;
+}
+
+/* Back/Return Button positioning */
+.back-button, .return-button, .back-btn, .return-btn {
+    top: 15px;
+    left: 15px;
+}
+
+/* Home Button positioning */
+.home-button, .home-btn {
+    top: 15px;
+    right: 15px;
+}
+
+/* Button images */
+.back-button img, .return-button img, .home-button img, 
+.back-btn img, .return-btn img, .home-btn img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensures proper alignment */
+}
+
+/* Hover effect for all navigation buttons */
+.back-button:hover, .return-button:hover, .home-button:hover, 
+.back-btn:hover, .return-btn:hover, .home-btn:hover {
+    opacity: 0.7;
+}
+
+.home-button, .home-btn {
+    background: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Header */
+.header {
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-icon {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Input Fields */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 25px;
+    border: none;
+    background: #4c8a2c; /* Green button style */
+    color: white;
+    font-size: 16px;
+    outline: none;
+    text-align: left;
+    font-weight: bold;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+/* Submit Button*/
+.submit-button {
+    background: #ffcc00; /* Yellow button */
+    color: black;
+    font-size: 16px;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    width: 50%;  /* Reduced width */
+    max-width: 200px; /* Ensures it doesn’t stretch too much */
+    margin: 0 auto; /* Centers the button */
+}
+
+.submit-button:hover {
+    background: #e6b800;
+    transform: scale(1.05);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .password-container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 20px;
+    }
+
+    .submit-button {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}

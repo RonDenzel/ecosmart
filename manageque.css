@@ -1,0 +1,181 @@
+/* Smooth and Subtle Gradient */
+body {
+    background: linear-gradient(to bottom, #354A35, #1E291E);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    position: relative;
+}
+
+/* Container for Full Page */
+.container {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(to bottom, #2F3E2F, #1E291E); /* Ensures uniform look */
+}
+
+/* Uniform Navigation Button Styling */
+.back-button, .return-button, .home-button, .back-btn, .return-btn, .home-btn {
+    position: absolute;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+    width: 45px; /* Adjusted for better visibility */
+    height: auto;
+}
+
+/* Back/Return Button positioning */
+.back-button, .return-button, .back-btn, .return-btn {
+    top: 4px;
+    left: 4px;
+}
+
+/* Home Button positioning */
+.home-button, .home-btn {
+    top: 15px;
+    right: 15px;
+}
+
+/* Button images */
+.back-button img, .return-button img, .home-button img, 
+.back-btn img, .return-btn img, .home-btn img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensures proper alignment */
+}
+
+/* Hover effect for all navigation buttons */
+.back-button:hover, .return-button:hover, .home-button:hover, 
+.back-btn:hover, .return-btn:hover, .home-btn:hover {
+    opacity: 0.7;
+}
+
+/* Queue Section */
+.queue-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    text-align: left;
+}
+
+/* Adjusted Regular Section */
+.regular {
+    padding-left: 50px; /* Moves "Regular" slightly to the right */
+}
+
+/* Queue Styling */
+.queue {
+    flex: 1;
+    padding: 10px;
+}
+
+.queue-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Scrollable List */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 55vh; /* Prevents overflow */
+    overflow-y: auto; /* Enables scrolling if needed */
+}
+
+li {
+    font-size: 24px;
+    padding: 10px;
+}
+
+/* Skipped Numbers Box */
+.skipped-container {
+    background: #A91B0D;
+    padding:15px;
+    border-radius: 10px;
+    text-align: center;
+    position: fixed;
+    top: 10px;
+    right: 43px;
+    width: 250px;
+}
+
+.skipped-container h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+#skipped-queue {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+#skipped-queue li {
+    font-size: 12px;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    margin-bottom: 6px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Now Serving Section */
+.serving-box {
+    background: black;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    width: 300px;
+}
+
+/* Large Now Serving Number */
+#current-number {
+    font-size: 70px;
+    font-weight: bold;
+    color: #EDC001;
+    display: block;
+    text-align: center;
+}
+
+/* Button Styling */
+button {
+    background: #710C04;
+    color: white;
+    border: 1px solid white;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: darkred;
+}
+
+/* Custom Scrollbar */
+ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+ul::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly brighter */
+    border-radius: 4px;
+}
+
+ul::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}

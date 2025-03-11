@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #1f2818, #7d9363); /* Green gradient */
+    text-align: center;
+    color: white;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Trirong');
+
+.welcome-text {
+    font-family: "Trirong", serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+#adminName {
+    color: #FFD700; 
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding:0;
+}
+.return-button {
+    position:absolute;
+    top: 10px;
+    right: 1400px;
+    display: flex;
+    gap: 15px;
+}
+.back-btn img {
+        width: 60px;
+        height: 60px;
+}
+
+.top-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 15px;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.icon-btn img {
+    width: 30px;
+    height: 30px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.logo img {
+    width: 250px;
+    height: auto;
+}
+h2 {
+    font-family: 'Poppins', sans-serif; /* Replace with the actual font */
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+#adminName {
+    color: #FFD700; /* Gold color for contrast */
+}
+
+.user-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+}
+
+.subtitle {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+}
+
+.action-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    min-width: 180px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+
+    text-decoration: none;
+}
+
+.action-btn:hover {
+    background-color: #444;
+    text-decoration: none;
+}

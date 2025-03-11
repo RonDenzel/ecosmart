@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report</title>
+    <link rel="stylesheet" href="dailyreport.css">
+    
+    <!-- Firebase -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+        import { getDatabase, ref, get } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAn2WHhyPfyYV0rj5oZRo6MQK5HDbucIbo",
+            authDomain: "queueing-8976a.firebaseapp.com",
+            databaseURL: "https://queueing-8976a-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "queueing-8976a",
+            storageBucket: "queueing-8976a.firebasestorage.app",
+            messagingSenderId: "10213448291",
+            appId: "1:10213448291:web:2d07230ebe2fe2a9f0f656"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        // Make Firebase functions available globally
+        window.database = database;
+        window.dbRef = ref;
+        window.dbGet = get;
+        
+        // Initialize when page loads
+        window.addEventListener('DOMContentLoaded', loadReportData);
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="adminhomepage.html">
+            <img src="return button.png" alt="Back" class="back-button">
+        </a>
+        <h1>DAILY REPORT</h1>
+        <a href="index.html">
+            <img src="home icon.png" alt="Home" class="home-button">
+        </a>
+    </header>
+
+    <!-- Date selector -->
+    <div class="date-selector">
+        <input type="date" id="reportDate">
+        <button id="loadButton">Load Report</button>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Queue Number</th>
+                    <th>Email</th>
+                    <th>Transaction Details</th>
+                    <th>Time Registered</th>
+                </tr>
+            </thead>
+            <tbody id="reportData">
+                <!-- Data will be loaded dynamically -->
+            </tbody>
+        </table>
+    </main>
+
+    <script>
+        // Set default date to today
+        document.getElementById('reportDate').valueAsDate = new Date();
+        
+        // Add event listener for the load button
+        document.getElementById('loadButton').addEventListener('click', function() {
+            loadReportData();
+        });
+        
+        // Helper function to get readable transaction details
+        function getTransactionDetail(transactionType) {
+            switch(transactionType) {
+                case 'tuition': return 'Tuition and Payments';
+                case 'graduates': return 'Graduates';
+                case 'enrollment': return 'Enrollment and Inquiries';
+                case 'schedule': return 'Schedule';
+                case 'document': return 'Request for Document';
+                case 'others': return 'Others';
+                default: return transactionType;
+            }
+        }
+        
+        // Function to load report data from the done node
+        async function loadReportData() {
+            try {
+                const selectedDate = document.getElementById('reportDate').value;
+                const formattedDate = formatDate(new Date(selectedDate));
+                
+                const tableBody = document.getElementById('reportData');
+                tableBody.innerHTML = '<tr><td colspan="4">Loading data...</td></tr>';
+                
+                // Get report data from Firebase (from the done node instead of dailyreport)
+                const doneRef = window.dbRef(window.database, 'done');
+                const doneSnapshot = await window.dbGet(doneRef);
+                
+                if (doneSnapshot.exists()) {
+                    const entries = [];
+                    
+                    // Process data
+                    doneSnapshot.forEach((childSnapshot) => {
+                        const doneData = childSnapshot.val();
+                        if (doneData.date === formattedDate) {
+                            entries.push(doneData);
+                        }
+                    });
+                    
+                    // Sort by timestamp (if available) or time
+                    entries.sort((a, b) => {
+                        if (a.timestamp && b.timestamp) {
+                            return a.timestamp - b.timestamp;
+                        }
+                        return a.time.localeCompare(b.time);
+                    });
+                    
+                    // Clear the table
+                    tableBody.innerHTML = '';
+                    
+                    // Check if there's any data for the selected date
+                    if (entries.length === 0) {
+                        tableBody.innerHTML = '<tr><td colspan="4">No completed transactions for this date</td></tr>';
+                        return;
+                    }
+                    
+                    // Populate the table
+                    entries.forEach((entry) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${entry.queueNumber}</td>
+                            <td>${entry.email}</td>
+                            <td>${getTransactionDetail(entry.transactionType)}</td>
+                            <td>${entry.time}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                } else {
+                    tableBody.innerHTML = '<tr><td colspan="4">No data available</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading report:', error);
+                document.getElementById('reportData').innerHTML = 
+                    '<tr><td colspan="4">Error loading data. Please try again.</td></tr>';
+            }
+        }
+        
+        // Helper function to format date as MM/DD/YYYY
+        function formatDate(date) {
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+            const year = date.getFullYear();
+            return `${month}/${day}/${year}`;
+        }
+
+        let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo = JSON.parse(sessionStorage.getItem("user-info"));
+    
+        let MsgHead = document.getElementById('msg');
+        let GreetHead = document.getElementById('greet');
+        //let SignoutBtn = document.getElementById('signoutbutton');
+        let HomeBtn = document.getElementById('homebutton');
+    
+        /*let Signout = ()=>{
+          sessionStorage.removeItem("user-creds");
+          sessionStorage.removeItem("user-info");
+          window.location.href = 'adminlogin.html'
+        }*/
+    
+        let Home = () => {
+  // Ask user for confirmation before signing out
+  let confirmation = confirm("Are you sure you want to sign out and return to homepage?");
+  
+  // If user clicks "OK" (Yes)
+  if (confirmation) {
+    sessionStorage.removeItem("user-creds");
+    sessionStorage.removeItem("user-info");
+    window.location.href = 'index.html';
+  }
+  // If user clicks "Cancel" (No), do nothing and stay on current page
+};
+    
+        let CheckCred = ()=>{
+          if(!sessionStorage.getItem("user-creds"))
+            window.location.href = 'adminlogin.html'
+        }
+    
+        window.addEventListener('load', CheckCred);
+        //SignoutBtn.addEventListener('click', Signout);
+        HomeBtn.addEventListener('click', Home);
+    </script>
+</body>
+</html>
